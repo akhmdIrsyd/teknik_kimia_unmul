@@ -1,0 +1,249 @@
+
+{% extends 'website/base.html' %}
+{% load static %}
+{% block body %}
+
+
+
+
+
+
+    <!-- Facts Start -->
+    <div class="container-fluid facts py-5 pt-lg-0">
+        <div class="container py-5 pt-lg-0">
+            <div class="row gx-0">
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <i class="fa  fa-award text-primary"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-white mb-0">Akreditasi</h5>
+                            <h1 class="text-white mb-0" data-toggle="counter-up">C</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-primary d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <i class="fa fa-check text-white"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-primary mb-0">Mahasiswa</h5>
+                            <h1 class="mb-0" data-toggle="counter-up">12345</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
+                    <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <i class="fa fa-users text-primary"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-white mb-0">Tenaga Pendidik</h5>
+                            <h1 class="text-white mb-0" data-toggle="counter-up">{{rows4}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Facts Start -->
+
+
+    <!-- Pricing Plan Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h1 class="mb-0">KEGIATAN</h1>
+            </div>
+            <div class="row g-0">
+                
+                {% for row in  rows3 %}
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                    
+                    <div class="{% if forloop.counter|divisibleby:2 %}bg-light{% else %}bg-white{% endif %} rounded shadow position-relative" style="z-index: 1;">
+                        <div class="border-bottom py-4 px-5 mb-4">
+                            <i class="fa fa-calendar text-primary "></i>
+                            <h4 class="text-primary mb-1"> {{row.tgl_kegiatan}}</h4>
+                            <h5 class="text-uppercase">{{row.nama}} </h5><br/>
+                            <h5 class="text-uppercase">Waktu: {{row.waktu_kegiatan |date:"h:i"}} WITA</h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                 {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+    <!-- Pricing Plan End -->
+
+    
+
+
+    <!-- video profil Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h1 class="mb-0">VIDEO PROFIL</h1>
+            </div>
+            <div class="row g-5">
+                
+                <div class="wow slideInUp" data-wow-delay="0.3s">
+                    <div class="bg-white rounded shadow position-relative" >
+                        <iframe width="100%" height="720px" controls 
+                        src="https://www.youtube.com/embed/TSqK4H0rdQU">
+                        </iframe>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- video profil End -->
+
+     <!-- Blog Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h1 class="mb-0">BERITA</h1>
+            </div>
+            <div class="row g-5">
+                {% for row in  rows1 %}
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
+                    <div class="blog-item bg-light rounded overflow-hidden">
+                        <div class="blog-img position-relative overflow-hidden">
+                            <img class="img-fluid" src="{{row.gambar.url}}" alt="" >
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex mb-3">
+                                <small><i class="far fa-calendar-alt text-primary me-2"></i>{{row.created_at}}</small>
+                            </div>
+                            <h4 class="mb-3">{{row.Judul}}</h4>
+                            <p>{{row.isi_berita|safe|truncatewords_html:30}}</p>
+                            <a class="text-uppercase" href="{% url 'detail_berita' row.id %}">Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <a href="{% url 'berita' %}" class="btn bg-primary btn-outline-light animated slideInRight">Semua Berita</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Start -->
+
+
+
+
+
+    <!-- Team Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h1 class="mb-0">DOSEN</h1>
+            </div>
+            <div class="row g-5">
+                {% for row in rows2 %}
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light rounded overflow-hidden">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{{row.foto.url}}" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{% url 'detail_dosen' row.id %}"><i class="fa fa-search "></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <h4 class="text-primary">{{row.nama}}</h4>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <a href="{% url 'dosen' %}" class="btn bg-primary btn-outline-light animated slideInRight">Semua Dosen</a>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+   <!-- Service Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h1 class="mb-0">INFORMASI</h1>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-shield-alt text-white"></i>
+                        </div>
+                        <h4 class="mb-3">AKREDITASI</h4>
+                        <a class="btn btn-lg btn-primary rounded" href="{% url 'akreditasi' %}">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-chart-pie text-white"></i>
+                        </div>
+                        <h4 class="mb-3">KALENDER AKADEMIK</h4>
+                        <a class="btn btn-lg btn-primary rounded" href="{% url 'kalender_akademik' %}">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
+                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-code text-white"></i>
+                        </div>
+                        <h4 class="mb-3">PERPUSTAKAAN</h4>
+                        <a class="btn btn-lg btn-primary rounded" href="http://perpustakaan.unmul.ac.id/portal_teknik/">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fab fa-android text-white"></i>
+                        </div>
+                        <h4 class="mb-3">KKN</h4>
+                        <a class="btn btn-lg btn-primary rounded" href="https://kkn.ft.unmul.ac.id/">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-search text-white"></i>
+                        </div>
+                        <h4 class="mb-3">JURNAL</h4>
+                        <a class="btn btn-lg btn-primary rounded" href="http://e-journals.unmul.ac.id/index.php/TK">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
+                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="service-icon">
+                            <i class="fa fa-search text-white"></i>
+                        </div>
+                        <h4 class="mb-3">PORTAL SIA</h4>
+                        <a class="btn btn-lg btn-primary rounded" href="https://sia.unmul.ac.id/">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+   
+
+
+{% endblock %}

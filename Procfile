@@ -1,0 +1,1 @@
+web: gunicorn kimia_unmul.wsgi --log-file -
