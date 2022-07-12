@@ -47,7 +47,20 @@ apabila sudah,ketik di comand promt:
 ```
 python manage.py migrate
 ```
-lalu
+lalu, untuk membuat akun, ketik:
 ```
 python manage.py createsuperuser
+```
+
+apabila sudah, coba jalankan website:
+```
+python manage.py runserver ip-address_atau_domain:8000
+```
+buka website dengan mengetik url berikut pada browser
+```
+python manage.py runserver ip-address_atau_domain:8000
+```
+untuk mengakses admin, ketik:
+```
+python manage.py runserver ip-address_atau_domain:8000/admin
 ```
