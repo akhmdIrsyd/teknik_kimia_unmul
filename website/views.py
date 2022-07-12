@@ -187,7 +187,7 @@ def kalender_akademik(request):
     context = {
         'rows1': Kalender_akademiks,
     }
-    return render(request, 'website/kalender_akademik.html', context)
+    return render(request, 'website/Kalender_akademik.html', context)
 
 
 def jadwal_kuliah(request):
