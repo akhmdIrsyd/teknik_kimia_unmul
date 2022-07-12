@@ -1,6 +1,6 @@
 # teknik_kimia_unmul
 install python
-buka comand promt lalu arahkan ke folder kimia_unmul
+buka command prompt lalu arahkan ke folder kimia_unmul
 ```
 pip install --upgrade pip
 ```
@@ -43,7 +43,7 @@ DATABASES = {
     }
 }
 ```
-apabila sudah,ketik di comand promt:
+apabila sudah,ketik di command prompt:
 ```
 python manage.py migrate
 ```
