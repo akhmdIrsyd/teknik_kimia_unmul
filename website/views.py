@@ -188,7 +188,7 @@ def kalender_akademik(request):
         'rows1': Kalender_akademiks,
     }
     return render(request, 'website/Kalender_akademik.html', context)
-
+##
 
 def jadwal_kuliah(request):
     try:
