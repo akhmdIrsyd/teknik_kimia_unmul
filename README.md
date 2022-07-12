@@ -1,9 +1,12 @@
 # teknik_kimia_unmul
 install python
-buka command prompt lalu arahkan ke folder kimia_unmul
+
+update pip
 ```
 pip install --upgrade pip
 ```
+buka command prompt lalu arahkan ke folder kimia_unmul
+
 arahkan ke folder kimia_unmul, lalu ketik:
 ```
 pip install -r requirements.py
