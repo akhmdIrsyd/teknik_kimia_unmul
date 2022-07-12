@@ -57,16 +57,20 @@ lalu, untuk membuat akun, ketik:
 python manage.py createsuperuser
 ```
 
-apabila sudah, coba jalankan website:
+apabila sudah, jalankan website:
 ```
 python manage.py runserver ip-address_atau_domain:8000
 ```
-buka website dengan mengetik url berikut pada browser
+
+untuk mengakses halaman website, ketik di browser:
 ```
-python manage.py runserver ip-address_atau_domain:8000
+ip-address_atau_domain:8000
 ```
 untuk mengakses admin, ketik:
 ```
-python manage.py runserver ip-address_atau_domain:8000/admin
+ip-address_atau_domain:8000/admin
 ```
+
+untuk menghindari error pada halaman website, isi semua konten yang ada pada admin website
+
 untuk lebih jelas dapat di lihat https://www.dewaweb.com/blog/cara-deploy-project-django-framework-di-ubuntu-18-04/
