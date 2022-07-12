@@ -69,3 +69,4 @@ untuk mengakses admin, ketik:
 ```
 python manage.py runserver ip-address_atau_domain:8000/admin
 ```
+untuk lebih jelas dapat di lihat https://www.dewaweb.com/blog/cara-deploy-project-django-framework-di-ubuntu-18-04/
