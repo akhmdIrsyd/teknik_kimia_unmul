@@ -66,7 +66,7 @@
                         <div class="border-bottom py-4 px-5 mb-4">
                             <i class="fa fa-calendar text-primary "></i>
                             <h4 class="text-primary mb-1"> {{row.tgl_kegiatan}}</h4>
-                            <h5 class="text-uppercase">{{row.nama}} </h5><br/>
+                            <h5 class="text-uppercase"><a href="{% url 'detail_kegiatan' pk=row.id %}">{{row.nama}} </a></h5><br/>
                             <h5 class="text-uppercase">Waktu: {{row.waktu_kegiatan |date:"h:i"}} WITA</h5>
                         </div>
                         
