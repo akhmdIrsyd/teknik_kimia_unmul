@@ -7,7 +7,7 @@ import datetime
 
 
 def index(request):
-    beritas = models.Berita.objects.all().latest('updated_at')
+    beritas = models.Berita.objects.all().latest('-created_at')
     list_beritas = models.Berita.objects.all().order_by('-created_at')[:3] 
     dosens = models.Dosen.objects.all()[:3]
     jml_dosens = models.Dosen.objects.all().count()
@@ -100,7 +100,7 @@ def lembaga_mhs(request):
     context = {
         'rows': Lembaga_mhss,
     }
-    return render(request, 'website/lembaga_mhs.html', context)
+    return render(request, 'website/Lembaga_mhs.html', context)
 
 
 def prestasi_mhs(request):
