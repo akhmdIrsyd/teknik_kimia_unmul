@@ -12,6 +12,8 @@ arahkan ke folder kimia_unmul, lalu ketik:
 pip install -r requirements.py
 ```
 buat database
+
+lalu install connector database dengan:
 ```
 pip install mysqlclient
 ```
